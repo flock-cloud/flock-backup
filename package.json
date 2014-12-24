@@ -1,0 +1,33 @@
+{
+  "name": "flock-backup",
+  "version": "1.0.0",
+  "description": "Flock Backup Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:palmerabollo/flock-backup.git"
+  },
+  "keywords": [
+    "flock",
+    "backup"
+  ],
+  "author": "Guido García",
+  "license": "MIT",
+
+  "flock": {
+      "instances": 1,
+      "cpus": 0.1,
+      "mem": 32,
+      "ports": 1
+  },
+  "checks": [
+    {
+      "path": "/",
+      "intervalSeconds": 5,
+      "maxConsecutiveFailures": 3
+    }
+  ]
+}

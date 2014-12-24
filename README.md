@@ -1,4 +1,4 @@
-flock-demo
-==========
+flock-backup
+============
 
-Flock Demo. Work in progress.
+Flock Backup Server for haproxy integration. Work in progress.

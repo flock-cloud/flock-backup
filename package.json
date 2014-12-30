@@ -12,15 +12,19 @@
   },
   "keywords": [
     "flock",
-    "backup"
+    "backup",
+    "scale"
   ],
   "author": "Guido García",
   "license": "MIT",
+  "dependencies": {
+    "marathon.node": "^0.0.1"
+  },
 
   "flock": {
       "instances": 1,
       "cpus": 0.1,
-      "mem": 32,
+      "mem": 16,
       "ports": 1
   },
   "checks": [

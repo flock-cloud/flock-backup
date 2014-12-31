@@ -15,10 +15,10 @@ http.createServer(function (req, res) {
             console.log('proxy request to %s', host);
 
             var options = {
-                host: host,
+                host: '10.141.141.10', // TODO use host when DNS is available
                 port: 80,
                 method: req.method,
-                headers: req.headers,
+                headers: headers,
                 path: req.url
             };
             var proxyRequest = http.request(options, function (proxyResponse) {

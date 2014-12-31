@@ -27,11 +27,5 @@
       "mem": 16,
       "ports": 1
   },
-  "checks": [
-    {
-      "path": "/",
-      "intervalSeconds": 5,
-      "maxConsecutiveFailures": 3
-    }
-  ]
+  "checks": []
 }

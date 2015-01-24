@@ -25,7 +25,7 @@ http.createServer(function (req, res) {
                 proxyResponse.pipe(res);
             });
             req.pipe(proxyRequest);
-        }, 30000); // TODO subscribe to marathon instead of waiting
+        }, 65000); // TODO subscribe to marathon instead of waiting
     });
 }).listen(process.env.PORT0); // dynamic binding
 
@@ -44,8 +44,8 @@ var beautify = function beautify(name) {
 }
 
 var scale = function scale(appName, callback) {
-    client.app(appName).update({instances: 1}).then(function(res) {
-        console.log(res);
+    client.app(appName).update({instances: 1}).then(function onscale(res) {
+        console.log('scale up response', res);
         callback();
     });
 }

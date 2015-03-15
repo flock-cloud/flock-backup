@@ -1,9 +1,15 @@
 var http = require('http'),
+    url = require('url'),
     Marathon = require('marathon.node');
 
 // TODO read from consul
-var MARATHON_API = 'http://10.141.141.10:8080';
+var MARATHON_API = process.env.MARATHON_API || 'http://10.141.141.10:8080';
 var DOMAIN = 'flock.com';
+
+// XXX
+// TODO use host when DNS is available
+var HAPROXY_HOST = url.parse(MARATHON_API).hostname;
+var HAPROXY_PORT = 80;
 
 http.createServer(function (req, res) {
     var appName = getAppId(req);
@@ -15,8 +21,8 @@ http.createServer(function (req, res) {
             console.log('proxy request to %s', host);
 
             var options = {
-                host: '10.141.141.10', // TODO use host when DNS is available
-                port: 80,
+                host: HAPROXY_HOST,
+                port: HAPROXY_PORT,
                 method: req.method,
                 headers: headers,
                 path: req.url
@@ -25,7 +31,7 @@ http.createServer(function (req, res) {
                 proxyResponse.pipe(res);
             });
             req.pipe(proxyRequest);
-        }, 65000); // TODO subscribe to marathon instead of waiting
+        }, 65000); // TODO subscribe to marathon events instead of waiting
     });
 }).listen(process.env.PORT0); // dynamic binding
 

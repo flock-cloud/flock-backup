@@ -55,4 +55,4 @@ var scale = function scale(appName, callback) {
         callback();
     });
 }
-console.log('flock-backup at http://0.0.0.0:%d/', process.env.PORT0);
+console.log('flock-backup listening at http://0.0.0.0:%d/', process.env.PORT0);

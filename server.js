@@ -3,7 +3,7 @@ var http = require('http'),
     Marathon = require('marathon.node');
 
 // TODO read from consul
-var MARATHON_API = process.env.MARATHON_API || 'http://10.141.141.10:8080';
+var MARATHON_API = process.env.MARATHON_API || 'http://10.132.73.12:8080';
 var DOMAIN = 'flock.com';
 
 // XXX
